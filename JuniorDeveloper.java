@@ -1,5 +1,5 @@
 public class JuniorDeveloper extends Developer {
-    public static final double BASE_MONTHLY = 13000;
+    public static final double BASE_MONTHLY = 10000;
 
     public JuniorDeveloper(String firstName, String lastName, String ssn) {
         super(firstName, lastName, ssn);

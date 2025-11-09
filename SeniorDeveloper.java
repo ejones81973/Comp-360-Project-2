@@ -1,6 +1,6 @@
 
 public class SeniorDeveloper extends Developer {
-    public static final double BASE_MONTHLY = 15000;
+    public static final double BASE_MONTHLY = 10000;
     public static final int STOCKS = 100;
 
     public SeniorDeveloper(String firstName, String lastName, String ssn) {
