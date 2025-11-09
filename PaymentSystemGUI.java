@@ -5,7 +5,6 @@ import javax.swing.*;
 public class PaymentSystemGUI extends JFrame {
     private final JTextField tfFirst = new JTextField(12);
     private final JTextField tfLast = new JTextField(12);
-    private final JTextField tfSsn = new JTextField(12);
     private final JComboBox<String> cbType = new JComboBox<>(new String[] {
             "New Developer", "Junior Developer", "Senior Developer"});
     private final JCheckBox chProfit = new JCheckBox("Good product profit?");
