@@ -1,8 +1,8 @@
 public class Developer extends Employee {
     protected double monthlySalary;
 
-    public Developer(String firstName, String lastName) {
-        super(firstName, lastName);
+    public Developer(String firstName, String lastName, String ssn) {
+        super(firstName, lastName, ssn);
     }
 
     // Static polymorphism: overloaded methods
@@ -29,7 +29,7 @@ public class Developer extends Employee {
 
     public String getDetails(boolean goodProfit) {
         double total = calculateAnnualPayment(goodProfit);
-        return String.format("Name: %s %s%nTotal Payment: $%,.2f",
-                lastName, firstName, total);
+        return String.format("Name: %s %s%nSSN: %s%nTotal Payment: $%,.2f",
+                lastName, firstName, ssn, total);
     }
 }

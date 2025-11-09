@@ -1,8 +1,8 @@
 public class JuniorDeveloper extends Developer {
     public static final double BASE_MONTHLY = 13000;
 
-    public JuniorDeveloper(String firstName, String lastName) {
-        super(firstName, lastName);
+    public JuniorDeveloper(String firstName, String lastName, String ssn) {
+        super(firstName, lastName, ssn);
         setMonthlySalary(BASE_MONTHLY); // calls double overload
     }
 
@@ -21,10 +21,10 @@ public class JuniorDeveloper extends Developer {
         double extraOnePercent = base * 0.01;
         double total = calculateAnnualPayment(goodProfit);
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Name: %s %s%n", lastName, firstName));
+        sb.append(String.format("Name: %s %s%nSSN: %s%n", lastName, firstName, ssn));
         sb.append(String.format("Base Annual Salary: $%,.2f%n", base));
         sb.append(String.format("Additional 1%%: $%,.2f%n", extraOnePercent));
-        if (goodProfit) sb.append(String.format("Profit Bonus: $5,000.00%n"));
+        if (goodProfit) sb.append("Profit Bonus: $5,000.00%n");
         sb.append(String.format("Total Payment: $%,.2f", total));
         return sb.toString();
     }

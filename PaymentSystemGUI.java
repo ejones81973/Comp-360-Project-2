@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.*;
 
 public class PaymentSystemGUI extends JFrame {
     private final JTextField tfFirst = new JTextField(12);
     private final JTextField tfLast = new JTextField(12);
+    private final JTextField tfSsn = new JTextField(12);
     private final JComboBox<String> cbType = new JComboBox<>(new String[] {
             "New Developer", "Junior Developer", "Senior Developer"});
     private final JCheckBox chProfit = new JCheckBox("Good product profit?");
@@ -20,6 +21,8 @@ public class PaymentSystemGUI extends JFrame {
         c.gridx = 1; p.add(tfFirst, c);
         c.gridx = 0; c.gridy = 1; p.add(new JLabel("Last Name:"), c);
         c.gridx = 1; p.add(tfLast, c);
+        c.gridx = 0; c.gridy = 2; p.add(new JLabel("SSN:"), c);
+        c.gridx = 1; p.add(tfSsn, c);
         c.gridx = 0; c.gridy = 3; p.add(new JLabel("Type:"), c);
         c.gridx = 1; p.add(cbType, c);
         c.gridx = 0; c.gridy = 4; p.add(chProfit, c);
@@ -37,7 +40,8 @@ public class PaymentSystemGUI extends JFrame {
     private void onCalculate(ActionEvent e) {
         String first = tfFirst.getText().trim();
         String last = tfLast.getText().trim();
-        if (first.isEmpty() || last.isEmpty()) {
+        String ssn = tfSsn.getText().trim();
+        if (first.isEmpty() || last.isEmpty() || ssn.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields.");
             return;
         }
@@ -48,14 +52,14 @@ public class PaymentSystemGUI extends JFrame {
         Developer dev;
         switch (type) {
             case "Junior Developer":
-                dev = new JuniorDeveloper(first, last);
+                dev = new JuniorDeveloper(first, last, ssn);
                 // overloaded call example (double) already used in constructor
                 break;
             case "Senior Developer":
-                dev = new SeniorDeveloper(first, last);
+                dev = new SeniorDeveloper(first, last, ssn);
                 break;
             default:
-                dev = new NewDeveloper(first, last);
+                dev = new NewDeveloper(first, last, ssn);
         }
 
         // static polymorphism demonstration: compile-time overload selection
